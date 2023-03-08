@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+// import MenuBar from "./MenuBar";
+// import Routes from "./Routes";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import BookAndSearch from "./MenuBarPages/BookAndSearch";
+import Sidebar from "./Components/Sidebar";
+import EnterNewCar from "./MenuBarPages/EnterNewCar";
+import DeleteCar from "./MenuBarPages/DeleteCar";
+import BookCar from "./PostAndUpdate/BookCar";
+import CurrentlyAvailable from "./MenuBarPages/CurrentlyAvailable";
+// import Navbar from "";
 
 function App() {
+  // return <Sidebar />;
+  // return <CurrentlyAvailable />;
+  // return <EnterNewCar />; //post
+  // return <BookCar />; //put
+  // return <DeleteCar />
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Sidebar />}></Route>
+        <Route
+          path="/CurrentlyAvailable"
+          element={<CurrentlyAvailable />}
+        ></Route>
+        <Route path="/EnterNewCar" element={<EnterNewCar />} />
+        <Route path="/BookCar" element={<BookCar />} />
+        <Route path="/DeleteCar" element={<DeleteCar />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
